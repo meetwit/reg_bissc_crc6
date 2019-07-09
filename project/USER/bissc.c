@@ -1,11 +1,4 @@
 #include "bissc.h"
-//#include "GPIO.h"
-
-extern void BISS_vSensorModeSingle(uint8_t uwDataLength);
-
-//#ifndef  Control_P4_7(Mode, DriveStrength)
-//#define Control_P4_7(Mode, DriveStrength)       PORT4->IOCR4 = (PORT4->IOCR4 & ~0xF8000000) | (Mode << 27); PORT4->PDR0 = (PORT4->PDR0 & ~0x70000000) | (DriveStrength << 28)
-//#endif
 
 unsigned char crc6_table[64]={
 	0  ,3  ,6  ,5  ,12  ,15  ,10  ,
@@ -33,19 +26,29 @@ unsigned short fast_crc6(unsigned char *message, unsigned int len)
 
 }
 
-void BISS_vSensorModeSingle(uint8_t uwDataLength)
+uint8_t BISS_vSensorModeSingle(uint8_t uwDataLength)
 {
-	int i=0;
+	uint8_t i=0;
+	uint16_t j=0;
 	
 	for(i=0;i<uwDataLength;i++){
-		while((USIC0_CH0->TRBSR&0x00000800)!=0x00000800);		//等待发送缓冲器为空
+		while((USIC0_CH0->TRBSR&0x00000800)!=0x00000800)	//等待发送缓冲器为空
+		{
+			j++;
+			if(j>0xffff){
+				return 1;
+			}
+		}	
+		j=0;
 		USIC0_CH0->IN[0]  = i;											//发送数据
 	}
+	return 0;
 }
 
 
-void bissc_init(struct bissc * bissc_d){
+uint8_t bissc_init(struct bissc * bissc_d){
 	uint32_t Brg_PDiv = 0;
+	uint16_t j=0;
 	
 	 SCU_RESET->PRCLR0 |= SCU_RESET_PRCLR0_USIC0RS_Msk;					//clear PRCLR0 USIC0
 	 while (SCU_RESET->PRSTAT0 &	SCU_RESET_PRSTAT0_USIC0RS_Msk);
@@ -70,12 +73,6 @@ void bissc_init(struct bissc * bissc_d){
 	
 	PORT1->IOCR8 = (PORT1->IOCR8 & ~0x000000F8) | (0x12 << 3); 
 	PORT1->PDR1 = (PORT1->PDR1 & ~0x00000007) | (0x02);
-	
-//	Control_P4_7(INPUT, STRONG);							//MRST
-//	Control_P1_3(OUTPUT_PP_AF2, STRONG);			//MTSR
-//	Control_P1_1(OUTPUT_PP_AF2,STRONG);				//SCLK
-//	Control_P1_8(OUTPUT_PP_AF2, STRONG);			//SELO
-
 
 	WR_REG(USIC0_CH0->BRG,USIC_CH_BRG_SCLKCFG_Msk,USIC_CH_BRG_SCLKCFG_Pos,3);			//与clock同步，极性反转，为了空闲时输出为高 3
 
@@ -117,18 +114,45 @@ void bissc_init(struct bissc * bissc_d){
 	USIC0_CH0->TBCTR  =0x0000800;              // fifo size 2  limit  2    DP 62
 	USIC0_CH0->TBCTR  =0x3000828;								//0x100023e
 	
-	BISS_vSensorModeSingle(1);		//推空缓存
-	while((USIC0_CH0->TRBSR&0x0008)==0x0008){;}	//等待接收缓存有数据
+	if(BISS_vSensorModeSingle(1)){
+		return 2;
+	}	
+	while((USIC0_CH0->TRBSR&0x0008)==0x0008)	//等待接收缓存有数据
+	{
+				j++;
+				if(j>0xffff){
+					return 1;
+				}
+	}	
 	bissc_d->RxPacket[0] = (USIC0_CH0->OUTR&0x000000ff);			//取数据低8位，根据配置的位数读取，最多16位
-		
+	
+	bissc_d->cor_1_count=0;
+	bissc_d->err_1_count=0;
+	bissc_d->err_2_count=0;
+	bissc_d->err_3_count=0;
+	bissc_d->err_4_count=0;
+	bissc_d->err_5_count=0;
+	bissc_d->read_timeout_count=0;
+	
+	return 0;
 }
 
-void bissc_read(struct bissc * bissc_d){
+uint8_t bissc_read(struct bissc * bissc_d){
 		uint8_t i=0;
-		BISS_vSensorModeSingle(5);
+		uint16_t j=0;
+	
+		if(BISS_vSensorModeSingle(5)){
+			return 2;
+		}
 		
 		for(i=0;i<5;i++){
-			while((USIC0_CH0->TRBSR&0x0008)==0x0008);		//等待接收缓存有数据
+			while((USIC0_CH0->TRBSR&0x0008)==0x0008)		//等待接收缓存有数据
+			{
+				j++;
+				if(j>0xffff){
+					return 1;
+				}
+			}
 			bissc_d->RxPacket[i]= (USIC0_CH0->OUTR&0x000000ff);			//取数据低8位，根据配置的位数读取，最多16位
 		}
 		if(bissc_d->RxPacket[0]&0x10){
@@ -163,5 +187,6 @@ void bissc_read(struct bissc * bissc_d){
 		bissc_d->crc_ans = fast_crc6(bissc_d->crc_input,6);
 
 		bissc_d->CRC_result = (bissc_d->crc_ans==bissc_d->crc) ? 1 : 0;	
+		return 0;
 }
 	
