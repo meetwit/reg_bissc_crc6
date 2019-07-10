@@ -1,5 +1,5 @@
 Dependencies for Project 'reg_bissc_crc6', Target 'reg_bissc_crc6': (DO NOT MODIFY !)
-F (.\USER\main.c)(0x5D245E05)(--c99 --gnu -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_reg_bissc_crc6-IC:\Users\E\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include-IC:\Users\E\AppData\Local\Arm\Packs\Infineon\XMC4000_DFP\2.12.0\Device\XMC4800_series\Include-D__UVISION_VERSION="527" -D_RTE_ -DXMC4800_F144x2048-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (.\USER\main.c)(0x5D230699)(--c99 --gnu -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_reg_bissc_crc6-IC:\Users\E\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include-IC:\Users\E\AppData\Local\Arm\Packs\Infineon\XMC4000_DFP\2.12.0\Device\XMC4800_series\Include-D__UVISION_VERSION="527" -D_RTE_ -DXMC4800_F144x2048-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (C:\Users\E\AppData\Local\Arm\Packs\Infineon\XMC4000_DFP\2.12.0\Device\XMC4800_series\Include\xmc4800.h)(0x5947268E)
 I (C:\Users\E\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\core_cm4.h)(0x5C8F4DD4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
@@ -8,11 +8,12 @@ I (C:\Users\E\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\cmsis_c
 I (C:\Users\E\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\cmsis_armcc.h)(0x5C8F4DD4)
 I (C:\Users\E\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\mpu_armv7.h)(0x5C8F4DD4)
 I (C:\Users\E\AppData\Local\Arm\Packs\Infineon\XMC4000_DFP\2.12.0\Device\XMC4800_series\Include\system_XMC4800.h)(0x57870254)
-I (USER\bissc.h)(0x5D244C48)
+I (USER\GPIO.h)(0x5D1C551B)
+I (USER\bissc.h)(0x5D230785)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
-F (.\USER\bissc.c)(0x5D245C44)(--c99 --gnu -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_reg_bissc_crc6-IC:\Users\E\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include-IC:\Users\E\AppData\Local\Arm\Packs\Infineon\XMC4000_DFP\2.12.0\Device\XMC4800_series\Include-D__UVISION_VERSION="527" -D_RTE_ -DXMC4800_F144x2048-o .\objects\bissc.o --omf_browse .\objects\bissc.crf --depend .\objects\bissc.d)
-I (USER\bissc.h)(0x5D244C48)
+F (.\USER\bissc.c)(0x5D230925)(--c99 --gnu -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_reg_bissc_crc6-IC:\Users\E\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include-IC:\Users\E\AppData\Local\Arm\Packs\Infineon\XMC4000_DFP\2.12.0\Device\XMC4800_series\Include-D__UVISION_VERSION="527" -D_RTE_ -DXMC4800_F144x2048-o .\objects\bissc.o --omf_browse .\objects\bissc.crf --depend .\objects\bissc.d)
+I (USER\bissc.h)(0x5D230785)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
 I (C:\Users\E\AppData\Local\Arm\Packs\Infineon\XMC4000_DFP\2.12.0\Device\XMC4800_series\Include\xmc4800.h)(0x5947268E)
@@ -23,6 +24,7 @@ I (C:\Users\E\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\cmsis_c
 I (C:\Users\E\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\cmsis_armcc.h)(0x5C8F4DD4)
 I (C:\Users\E\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include\mpu_armv7.h)(0x5C8F4DD4)
 I (C:\Users\E\AppData\Local\Arm\Packs\Infineon\XMC4000_DFP\2.12.0\Device\XMC4800_series\Include\system_XMC4800.h)(0x57870254)
+I (USER\GPIO.h)(0x5D1C551B)
 F (RTE\Device\XMC4800-F144x2048\startup_XMC4800.s)(0x57870996)(--cpu Cortex-M4.fp --pd "__EVAL SETA 1" -g --apcs=interwork -I.\RTE\_reg_bissc_crc6-IC:\Users\E\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include-IC:\Users\E\AppData\Local\Arm\Packs\Infineon\XMC4000_DFP\2.12.0\Device\XMC4800_series\Include--pd "__UVISION_VERSION SETA 527" --pd "_RTE_ SETA 1" --pd "XMC4800_F144x2048 SETA 1"--list .\listings\startup_xmc4800.lst --xref -o .\objects\startup_xmc4800.o --depend .\objects\startup_xmc4800.d)
 F (RTE\Device\XMC4800-F144x2048\system_XMC4800.c)(0x5BD6BB36)(--c99 --gnu -c --cpu Cortex-M4.fp -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_reg_bissc_crc6-IC:\Users\E\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include-IC:\Users\E\AppData\Local\Arm\Packs\Infineon\XMC4000_DFP\2.12.0\Device\XMC4800_series\Include-D__UVISION_VERSION="527" -D_RTE_ -DXMC4800_F144x2048-o .\objects\system_xmc4800.o --omf_browse .\objects\system_xmc4800.crf --depend .\objects\system_xmc4800.d)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)

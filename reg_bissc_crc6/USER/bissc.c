@@ -1,5 +1,7 @@
 #include "bissc.h"
-#define timeout_num 0x3f
+#include "GPIO.h"
+
+extern void BISS_vSensorModeSingle(uint8_t uwDataLength);
 
 unsigned char crc6_table[64]={
 	0  ,3  ,6  ,5  ,12  ,15  ,10  ,
@@ -27,35 +29,35 @@ unsigned short fast_crc6(unsigned char *message, unsigned int len)
 
 }
 
-uint8_t BISS_vSensorModeSingle(uint8_t uwDataLength)
+void BISS_vSensorModeSingle(uint8_t uwDataLength)
 {
-	uint8_t i=0;
-	uint16_t j=0;
+	int i=0;
 	
 	for(i=0;i<uwDataLength;i++){
-		while((USIC0_CH0->TRBSR&0x00000800)!=0x00000800)	//等待发送缓冲器为空
-		{
-			j++;
-			if(j>timeout_num){
-				return 1;
-			}
-		}	
-		j=0;
+		while((USIC0_CH0->TRBSR&0x00000800)!=0x00000800);		//等待发送缓冲器为空
 		USIC0_CH0->IN[0]  = i;											//发送数据
 	}
-	return 0;
 }
 
 
-uint8_t bissc_init(struct bissc * bissc_d){
+void bissc_init(struct bissc * bissc_d){
 	uint32_t Brg_PDiv = 0;
-	uint16_t j=0;
 	
+	//-------------------------------------------------------------------------
+  // Step 1: 内核状态寄存器配置 - 使能模块，模块 + MODEN位保护
+	//         Configuration of the U0C1 Kernel State Configuration
+	//-------------------------------------------------------------------------
+
 	 SCU_RESET->PRCLR0 |= SCU_RESET_PRCLR0_USIC0RS_Msk;					//clear PRCLR0 USIC0
 	 while (SCU_RESET->PRSTAT0 &	SCU_RESET_PRSTAT0_USIC0RS_Msk);
 
 	 USIC0_CH0->KSCFG    =  0x00000003;      // load U0C0 kernel state configuration
 	                                         // register
+
+	//-------------------------------------------------------------------------
+  // Step 2:  选择分数分频器，配置波特率,并给相应寄存器赋值
+	//     		Configuration of baud rate
+	//-------------------------------------------------------------------------
 
 	Brg_PDiv = 9;			//144/2/(pdiv+1)	9的话约等于7.2M
 
@@ -63,19 +65,16 @@ uint8_t bissc_init(struct bissc * bissc_d){
 
 	USIC0_CH0->BRG = (((uint32_t)Brg_PDiv << USIC_CH_BRG_PDIV_Pos) & USIC_CH_BRG_PDIV_Msk)|0x00080;
 
-	PORT4->IOCR4 = (PORT4->IOCR4 & ~0xF8000000) | (0 << 27); 
-	PORT4->PDR0 = (PORT4->PDR0 & ~0x70000000) | (2 << 28);
-	
-	PORT1->IOCR4 = (PORT1->IOCR4 & ~0xF8000000) | (0x90000000);
-	PORT1->IOCR4 = (PORT1->IOCR4 & ~0xF8000000) | (0x90000000);
-	PORT1->IOCR4 = (PORT1->IOCR4 & ~0xF8000000) | (0x90000000);			//PORT1->IOCR4 = (PORT1->IOCR4 & ~0xF8000000) | (0x12 << 27); 
-	PORT1->PDR0 = (PORT1->PDR0 & ~0x70000000) | (0x02 << 28);
-	
-	PORT1->IOCR0 = (PORT1->IOCR0 & ~0x0000F800) | (0x12 << 11); 
-	PORT1->PDR0 = (PORT1->PDR0 & ~0x00000070) | (0x02 << 4);
-	
-	PORT1->IOCR8 = (PORT1->IOCR8 & ~0x000000F8) | (0x12 << 3); 
-	PORT1->PDR1 = (PORT1->PDR1 & ~0x00000007) | (0x02);
+
+	//-------------------------------------------------------------------------
+  // Step 3: 通道1引脚设置：P2.2、P2.5、P2.4和P2.3;  配置输入级
+	//-------------------------------------------------------------------------
+
+	Control_P4_7(INPUT, STRONG);							//Control_P2_2(INPUT, STRONG);							//Control_P2_2(INPUT, STRONG);								//MRST
+	Control_P1_7(OUTPUT_PP_AF2, STRONG);			//Control_P3_13(OUTPUT_PP_AF2, STRONG);			//Control_P2_5(OUTPUT_PP_AF2, STRONG);				//MTSR
+	Control_P1_1(OUTPUT_PP_AF2,STRONG);				//Control_P3_0(OUTPUT_PP_AF2,STRONG);				//Control_P2_4(OUTPUT_PP_AF2, STRONG);				//SCLK
+	Control_P1_8(OUTPUT_PP_AF2, STRONG);			//Control_P2_3(OUTPUT_PP_AF2, STRONG);			//Control_P2_3(OUTPUT_PP_AF2, STRONG);				//SELO
+
 
 	WR_REG(USIC0_CH0->BRG,USIC_CH_BRG_SCLKCFG_Msk,USIC_CH_BRG_SCLKCFG_Pos,3);			//与clock同步，极性反转，为了空闲时输出为高 3
 
@@ -83,6 +82,9 @@ uint8_t bissc_init(struct bissc * bissc_d){
 	WR_REG(USIC0_CH0->DX0CR, USIC_CH_DX0CR_DSEL_Msk, USIC_CH_DX0CR_DSEL_Pos, 2);		//000	DX0C	P4.7
 	WR_REG(USIC0_CH0->DX0CR, USIC_CH_DX0CR_INSW_Msk, USIC_CH_DX0CR_INSW_Pos, 1);		//由自选择DXn决定输入
 
+	//-------------------------------------------------------------------------
+  // Step 4:配置USIC移位控制寄存器
+	//-------------------------------------------------------------------------
 	WR_REG(USIC0_CH0->SCTR, USIC_CH_SCTR_PDL_Msk, USIC_CH_SCTR_PDL_Pos, 1);		//The passive data level is . here is change 1
 	WR_REG(USIC0_CH0->SCTR, USIC_CH_SCTR_TRM_Msk, USIC_CH_SCTR_TRM_Pos, 1);		//The shift control signal is considered active if it is at 1-level. 
 																																						//This is the setting to be programmed to allow data transfers.
@@ -91,16 +93,26 @@ uint8_t bissc_init(struct bissc * bissc_d){
 	WR_REG(USIC0_CH0->SCTR, USIC_CH_SCTR_FLE_Msk, USIC_CH_SCTR_FLE_Pos, 39);	//frame length
 	WR_REG(USIC0_CH0->SCTR, USIC_CH_SCTR_WLE_Msk, USIC_CH_SCTR_WLE_Pos, 7);		//word length
 
+
+	//-------------------------------------------------------------------------
+  // Step 5: 配置发送控制状态寄存器
+	//----------------------------------------------------------  ---------------
 	//TBUF Data Enable (TDEN) = 1, TBUF Data Single Shot Mode (TDSSM) = 1
 	WR_REG(USIC0_CH0->TCSR, USIC_CH_TCSR_TDEN_Msk, USIC_CH_TCSR_TDEN_Pos, 1);			//配置为01 TDV等于1时传输开始
 	//WR_REG(USIC0_CH0->TCSR, USIC_CH_TCSR_TDV_Msk, USIC_CH_TCSR_TDV_Pos, 1);				//add me
 	WR_REG(USIC0_CH0->TCSR, USIC_CH_TCSR_TDSSM_Msk, USIC_CH_TCSR_TDSSM_Pos, 1);		//单次
 
+	//-------------------------------------------------------------------------
+  // Step 6: 配置协议控制寄存器
+	//-------------------------------------------------------------------------
 	WR_REG(USIC0_CH0->PCR_SSCMode, USIC_CH_PCR_SSCMode_MSLSEN_Msk, USIC_CH_PCR_SSCMode_MSLSEN_Pos, 1);		//使能MSLSEN，主模式必须使能
 	WR_REG(USIC0_CH0->PCR_SSCMode, USIC_CH_PCR_SSCMode_SELCTR_Msk, USIC_CH_PCR_SSCMode_SELCTR_Pos, 1);		//SELO输出方式 直接
 	WR_REG(USIC0_CH0->PCR_SSCMode, USIC_CH_PCR_SSCMode_SELINV_Msk, USIC_CH_PCR_SSCMode_SELINV_Pos, 0);		//反转SELO输出
 	WR_REG(USIC0_CH0->PCR_SSCMode, USIC_CH_PCR_SSCMode_SELO_Msk, USIC_CH_PCR_SSCMode_SELO_Pos, 1);				//SELOx active control by SELCTR
 
+	//-------------------------------------------------------------------------
+  // Step 7: 配置通道控制寄存器
+	//-------------------------------------------------------------------------
 	WR_REG(USIC0_CH0->CCR, USIC_CH_CCR_MODE_Msk, USIC_CH_CCR_MODE_Pos, 1);
 	WR_REG(USIC0_CH0->CCR, USIC_CH_CCR_AIEN_Msk, USIC_CH_CCR_AIEN_Pos, 1);
 
@@ -117,45 +129,20 @@ uint8_t bissc_init(struct bissc * bissc_d){
 	USIC0_CH0->TBCTR  =0x0000800;              // fifo size 2  limit  2    DP 62
 	USIC0_CH0->TBCTR  =0x3000828;								//0x100023e
 	
-	if(BISS_vSensorModeSingle(1)){
-		return 2;
-	}	
-	while((USIC0_CH0->TRBSR&0x0008)==0x0008)	//等待接收缓存有数据
-	{
-				j++;
-				if(j>timeout_num){
-					return 1;
-				}
-	}	
+	BISS_vSensorModeSingle(1);		//推空缓存？
+	while((USIC0_CH0->TRBSR&0x0008)==0x0008){;}	//等待接收缓存有数据
 	bissc_d->RxPacket[0] = (USIC0_CH0->OUTR&0x000000ff);			//取数据低8位，根据配置的位数读取，最多16位
-	
-	bissc_d->cor_1_count=0;
-	bissc_d->err_1_count=0;
-	bissc_d->err_2_count=0;
-	bissc_d->err_3_count=0;
-	bissc_d->err_4_count=0;
-	bissc_d->err_5_count=0;
-	bissc_d->read_timeout_count=0;
-	
-	return 0;
+		
+	bissc_d->crc_cor=0;
+	bissc_d->crc_err=bissc_d->crc_cor;
 }
 
-uint8_t bissc_read(struct bissc * bissc_d){
+void bissc_read(struct bissc * bissc_d){
 		uint8_t i=0;
-		uint16_t j=0;
-	
-		if(BISS_vSensorModeSingle(5)){
-			return 2;
-		}
+		BISS_vSensorModeSingle(5);
 		
 		for(i=0;i<5;i++){
-			while((USIC0_CH0->TRBSR&0x0008)==0x0008)		//等待接收缓存有数据
-			{
-				j++;
-				if(j>timeout_num){
-					return 1;
-				}
-			}
+			while((USIC0_CH0->TRBSR&0x0008)==0x0008);		//等待接收缓存有数据
 			bissc_d->RxPacket[i]= (USIC0_CH0->OUTR&0x000000ff);			//取数据低8位，根据配置的位数读取，最多16位
 		}
 		if(bissc_d->RxPacket[0]&0x10){
@@ -189,13 +176,12 @@ uint8_t bissc_read(struct bissc * bissc_d){
 		bissc_d->crc_input[5]=0;
 		bissc_d->crc_ans = fast_crc6(bissc_d->crc_input,6);
 
-		bissc_d->CRC_result = (bissc_d->crc_ans==bissc_d->crc) ? 1 : 0;	
+
+		if(bissc_d->crc_ans!=bissc_d->crc){
+			bissc_d->crc_err++;
+		}else{
+			bissc_d->crc_cor++;
+		}
 		
-//增加此时fifo判断处理		
-//		if(){
-//		
-//		}
-		
-		return 0;
 }
 	

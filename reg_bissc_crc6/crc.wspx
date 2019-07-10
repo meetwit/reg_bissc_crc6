@@ -9,10 +9,10 @@
     <screen RegisteredName="DataScreen2" ScreenHeader="DataScreen1" ScreenType="DataScreen" />
   </screens>
   <nodes>
-    <node ScreenId="DataScreen2" NodeId="CustomDiagramNode1" OffsetX="260.00000000000006" OffsetY="95.364166081470941" AllowMove="true" AllowResize="true" AllowRotate="true" AllowSelect="true" IsInRuntimeMode="false" Width="839.99999999999989" Height="60.981972697707214" ZIndex="2" IsLocked="false" RotateAngle="0" Pivot="0.5,0.5" UpdateWhenVisible="true" IsWritableControl="false" WritableValue="0" IsDrawingShape="false" ShapeTypeStr="" RibbonTool="None">
+    <node ScreenId="DataScreen2" NodeId="CustomDiagramNode26" OffsetX="260" OffsetY="96" AllowMove="true" AllowResize="true" AllowRotate="true" AllowSelect="true" IsInRuntimeMode="false" Width="300" Height="60" ZIndex="2" IsLocked="false" RotateAngle="0" Pivot="0.5,0.5" UpdateWhenVisible="true" IsWritableControl="false" WritableValue="0" IsDrawingShape="false" ShapeTypeStr="" RibbonTool="None">
       <innercontent>
         <content ControlType="TextboxControl" Type="TextboxControl">
-          <definitions ColorBackground="#FFF5F5F5" Font="Arial Black" FontSizeValue="50" FontStyleValue="Normal" FontWeightValue="Normal" ColorFont="#FF000000" TextAlignmentValue="Right" SeparateThousandsWithComma="false" ScalingFactor="1" ScalingOffset="0" ScalingFormat="" LeadingZeroes="0" NumberOfDecimalPlaces="0" ColorBorder="#FFA9A9A9" BorderThickness="1" CornerRadius="1" Width="839.99999999999989" Height="60.981972697707214" IsVerticalText="false" ContainsAssignedSymbols="true" Text="" />
+          <definitions ColorBackground="#FFF5F5F5" Font="Arial Black" FontSizeValue="50" FontStyleValue="Normal" FontWeightValue="Normal" ColorFont="#FF000000" TextAlignmentValue="Right" SeparateThousandsWithComma="false" ScalingFactor="1" ScalingOffset="0" ScalingFormat="" LeadingZeroes="0" NumberOfDecimalPlaces="0" ColorBorder="#FFA9A9A9" BorderThickness="1" CornerRadius="1" Width="300" Height="60" IsVerticalText="false" ContainsAssignedSymbols="true" Text="" />
         </content>
       </innercontent>
       <symbols>
@@ -21,29 +21,12 @@
         </symbol>
       </symbols>
     </node>
-    <node ScreenId="DataScreen2" NodeId="CustomDiagramNode2" OffsetX="29" OffsetY="109.5" AllowMove="true" AllowResize="true" AllowRotate="true" AllowSelect="true" IsInRuntimeMode="false" Width="152" Height="47" ZIndex="3" IsLocked="false" RotateAngle="0" Pivot="0.5,0.5" IsWritableControl="false" WritableValue="0" IsDrawingShape="true" ShapeTypeStr="Rectangle" RibbonTool="None">
+    <node ScreenId="DataScreen2" NodeId="CustomDiagramNode27" OffsetX="28.000000000000014" OffsetY="96" AllowMove="true" AllowResize="true" AllowRotate="true" AllowSelect="true" IsInRuntimeMode="false" Width="152" Height="47" ZIndex="3" IsLocked="false" RotateAngle="0" Pivot="0.5,0.5" IsWritableControl="false" WritableValue="0" IsDrawingShape="true" ShapeTypeStr="Rectangle" RibbonTool="None">
       <shape>
         <properties Fill="#00FFFFFF" Thickness="2" Stroke="#00FFFFFF" DashDot="1, 0" Opacity="1" Label="读取的编码器数值" Font="Microsoft YaHei UI" FontSize="12" FontWeight="Normal" FontStyle="Normal" Bold="false" UnderLine="false" Strike="false" Italic="false" TextAlignment="Center" LabelHAlign="Center" LabelVAlign="Center" LabelMargin="5,5,5,5" LabelBackground="#00FFFFFF" LabelForeground="#FF000000" />
       </shape>
     </node>
-    <node ScreenId="DataScreen2" NodeId="CustomDiagramNode3" OffsetX="259.86859192018051" OffsetY="204.46716919758561" AllowMove="true" AllowResize="true" AllowRotate="true" AllowSelect="true" IsInRuntimeMode="false" Width="838.95034816852808" Height="60.78268520523104" ZIndex="4" IsLocked="false" RotateAngle="0" Pivot="0.5,0.5" UpdateWhenVisible="true" IsWritableControl="false" WritableValue="0" IsDrawingShape="false" ShapeTypeStr="" RibbonTool="None">
-      <innercontent>
-        <content ControlType="TextboxControl" Type="TextboxControl">
-          <definitions ColorBackground="#FFF5F5F5" Font="Arial Black" FontSizeValue="50" FontStyleValue="Normal" FontWeightValue="Normal" ColorFont="#FF000000" TextAlignmentValue="Right" SeparateThousandsWithComma="false" ScalingFactor="1" ScalingOffset="0" ScalingFormat="" LeadingZeroes="0" NumberOfDecimalPlaces="0" ColorBorder="#FFA9A9A9" BorderThickness="1" CornerRadius="1" Width="838.95034816852808" Height="60.78268520523104" IsVerticalText="false" ContainsAssignedSymbols="true" Text="" />
-        </content>
-      </innercontent>
-      <symbols>
-        <symbol path="bissc_test" IsAnArrayElement="false" ElementIndex="0" IsCustomSymbol="false" Mask_Enabled="false" Mask_Start_Bit="0" Mask_End_Bit="0">
-          <symbol path="bissc_test.cor_1_count" IsAnArrayElement="false" ElementIndex="0" IsCustomSymbol="false" Mask_Enabled="false" Mask_Start_Bit="0" Mask_End_Bit="0" />
-        </symbol>
-      </symbols>
-    </node>
-    <node ScreenId="DataScreen2" NodeId="CustomDiagramNode4" OffsetX="30" OffsetY="210" AllowMove="true" AllowResize="true" AllowRotate="true" AllowSelect="true" IsInRuntimeMode="false" Width="150" Height="50" ZIndex="6" IsLocked="false" RotateAngle="0" Pivot="0.5,0.5" IsWritableControl="false" WritableValue="0" IsDrawingShape="true" ShapeTypeStr="Rectangle" RibbonTool="None">
-      <shape>
-        <properties Fill="#00FFFFFF" Thickness="2" Stroke="#00FFFFFF" DashDot="1, 0" Opacity="1" Label="统计中单次正确的计数" Font="Microsoft YaHei UI" FontSize="12" FontWeight="Normal" FontStyle="Normal" Bold="false" UnderLine="false" Strike="false" Italic="false" TextAlignment="Center" LabelHAlign="Center" LabelVAlign="Center" LabelMargin="5,5,5,5" LabelBackground="#00FFFFFF" LabelForeground="#FF000000" />
-      </shape>
-    </node>
-    <node ScreenId="DataScreen2" NodeId="CustomDiagramNode5" OffsetX="260" OffsetY="319" AllowMove="true" AllowResize="true" AllowRotate="true" AllowSelect="true" IsInRuntimeMode="false" Width="300" Height="60" ZIndex="7" IsLocked="false" RotateAngle="0" Pivot="0.5,0.5" UpdateWhenVisible="true" IsWritableControl="false" WritableValue="0" IsDrawingShape="false" ShapeTypeStr="" RibbonTool="None">
+    <node ScreenId="DataScreen2" NodeId="CustomDiagramNode28" OffsetX="260" OffsetY="205" AllowMove="true" AllowResize="true" AllowRotate="true" AllowSelect="true" IsInRuntimeMode="false" Width="300" Height="60" ZIndex="4" IsLocked="false" RotateAngle="0" Pivot="0.5,0.5" UpdateWhenVisible="true" IsWritableControl="false" WritableValue="0" IsDrawingShape="false" ShapeTypeStr="" RibbonTool="None">
       <innercontent>
         <content ControlType="TextboxControl" Type="TextboxControl">
           <definitions ColorBackground="#FFF5F5F5" Font="Arial Black" FontSizeValue="50" FontStyleValue="Normal" FontWeightValue="Normal" ColorFont="#FF000000" TextAlignmentValue="Right" SeparateThousandsWithComma="false" ScalingFactor="1" ScalingOffset="0" ScalingFormat="" LeadingZeroes="0" NumberOfDecimalPlaces="0" ColorBorder="#FFA9A9A9" BorderThickness="1" CornerRadius="1" Width="300" Height="60" IsVerticalText="false" ContainsAssignedSymbols="true" Text="" />
@@ -51,16 +34,16 @@
       </innercontent>
       <symbols>
         <symbol path="bissc_test" IsAnArrayElement="false" ElementIndex="0" IsCustomSymbol="false" Mask_Enabled="false" Mask_Start_Bit="0" Mask_End_Bit="0">
-          <symbol path="bissc_test.err_1_count" IsAnArrayElement="false" ElementIndex="0" IsCustomSymbol="false" Mask_Enabled="false" Mask_Start_Bit="0" Mask_End_Bit="0" />
+          <symbol path="bissc_test.crc_cor" IsAnArrayElement="false" ElementIndex="0" IsCustomSymbol="false" Mask_Enabled="false" Mask_Start_Bit="0" Mask_End_Bit="0" />
         </symbol>
       </symbols>
     </node>
-    <node ScreenId="DataScreen2" NodeId="CustomDiagramNode6" OffsetX="30" OffsetY="324" AllowMove="true" AllowResize="true" AllowRotate="true" AllowSelect="true" IsInRuntimeMode="false" Width="150" Height="50" ZIndex="0" IsLocked="false" RotateAngle="0" Pivot="0.5,0.5" IsWritableControl="false" WritableValue="0" IsDrawingShape="true" ShapeTypeStr="Rectangle" RibbonTool="None">
+    <node ScreenId="DataScreen2" NodeId="CustomDiagramNode30" OffsetX="29" OffsetY="202" AllowMove="true" AllowResize="true" AllowRotate="true" AllowSelect="true" IsInRuntimeMode="false" Width="150" Height="50" ZIndex="6" IsLocked="false" RotateAngle="0" Pivot="0.5,0.5" IsWritableControl="false" WritableValue="0" IsDrawingShape="true" ShapeTypeStr="Rectangle" RibbonTool="None">
       <shape>
-        <properties Fill="#00FFFFFF" Thickness="2" Stroke="#00FFFFFF" DashDot="1, 0" Opacity="1" Label="统计中单次错误的计数" Font="Microsoft YaHei UI" FontSize="12" FontWeight="Normal" FontStyle="Normal" Bold="false" UnderLine="false" Strike="false" Italic="false" TextAlignment="Center" LabelHAlign="Center" LabelVAlign="Center" LabelMargin="5,5,5,5" LabelBackground="#00FFFFFF" LabelForeground="#FF000000" />
+        <properties Fill="#00FFFFFF" Thickness="2" Stroke="#00FFFFFF" DashDot="1, 0" Opacity="1" Label="统计中正确的计数" Font="Microsoft YaHei UI" FontSize="12" FontWeight="Normal" FontStyle="Normal" Bold="false" UnderLine="false" Strike="false" Italic="false" TextAlignment="Center" LabelHAlign="Center" LabelVAlign="Center" LabelMargin="5,5,5,5" LabelBackground="#00FFFFFF" LabelForeground="#FF000000" />
       </shape>
     </node>
-    <node ScreenId="DataScreen2" NodeId="CustomDiagramNode7" OffsetX="800" OffsetY="319" AllowMove="true" AllowResize="true" AllowRotate="true" AllowSelect="true" IsInRuntimeMode="false" Width="300" Height="60" ZIndex="1" IsLocked="false" RotateAngle="0" Pivot="0.5,0.5" UpdateWhenVisible="true" IsWritableControl="false" WritableValue="0" IsDrawingShape="false" ShapeTypeStr="" RibbonTool="None">
+    <node ScreenId="DataScreen2" NodeId="CustomDiagramNode31" OffsetX="260" OffsetY="320" AllowMove="true" AllowResize="true" AllowRotate="true" AllowSelect="true" IsInRuntimeMode="false" Width="300" Height="60" ZIndex="7" IsLocked="false" RotateAngle="0" Pivot="0.5,0.5" UpdateWhenVisible="true" IsWritableControl="false" WritableValue="0" IsDrawingShape="false" ShapeTypeStr="" RibbonTool="None">
       <innercontent>
         <content ControlType="TextboxControl" Type="TextboxControl">
           <definitions ColorBackground="#FFF5F5F5" Font="Arial Black" FontSizeValue="50" FontStyleValue="Normal" FontWeightValue="Normal" ColorFont="#FF000000" TextAlignmentValue="Right" SeparateThousandsWithComma="false" ScalingFactor="1" ScalingOffset="0" ScalingFormat="" LeadingZeroes="0" NumberOfDecimalPlaces="0" ColorBorder="#FFA9A9A9" BorderThickness="1" CornerRadius="1" Width="300" Height="60" IsVerticalText="false" ContainsAssignedSymbols="true" Text="" />
@@ -68,82 +51,14 @@
       </innercontent>
       <symbols>
         <symbol path="bissc_test" IsAnArrayElement="false" ElementIndex="0" IsCustomSymbol="false" Mask_Enabled="false" Mask_Start_Bit="0" Mask_End_Bit="0">
-          <symbol path="bissc_test.err_2_count" IsAnArrayElement="false" ElementIndex="0" IsCustomSymbol="false" Mask_Enabled="false" Mask_Start_Bit="0" Mask_End_Bit="0" />
+          <symbol path="bissc_test.crc_err" IsAnArrayElement="false" ElementIndex="0" IsCustomSymbol="false" Mask_Enabled="false" Mask_Start_Bit="0" Mask_End_Bit="0" />
         </symbol>
       </symbols>
     </node>
-    <node ScreenId="DataScreen2" NodeId="CustomDiagramNode8" OffsetX="610" OffsetY="324" AllowMove="true" AllowResize="true" AllowRotate="true" AllowSelect="true" IsInRuntimeMode="false" Width="150" Height="50" ZIndex="1" IsLocked="false" RotateAngle="0" Pivot="0.5,0.5" IsWritableControl="false" WritableValue="0" IsDrawingShape="true" ShapeTypeStr="Rectangle" RibbonTool="None">
+    <node ScreenId="DataScreen2" NodeId="CustomDiagramNode32" OffsetX="29" OffsetY="320" AllowMove="true" AllowResize="true" AllowRotate="true" AllowSelect="true" IsInRuntimeMode="false" Width="150" Height="50" ZIndex="8" IsLocked="false" RotateAngle="0" Pivot="0.5,0.5" IsWritableControl="false" WritableValue="0" IsDrawingShape="true" ShapeTypeStr="Rectangle" RibbonTool="None">
       <shape>
-        <properties Fill="#00FFFFFF" Thickness="2" Stroke="#00FFFFFF" DashDot="1, 0" Opacity="1" Label="两次连续错误" Font="Microsoft YaHei UI" FontSize="12" FontWeight="Normal" FontStyle="Normal" Bold="false" UnderLine="false" Strike="false" Italic="false" TextAlignment="Center" LabelHAlign="Center" LabelVAlign="Center" LabelMargin="5,5,5,5" LabelBackground="#00FFFFFF" LabelForeground="#FF000000" />
+        <properties Fill="#00FFFFFF" Thickness="2" Stroke="#00FFFFFF" DashDot="1, 0" Opacity="1" Label="统计中错误的计数" Font="Microsoft YaHei UI" FontSize="12" FontWeight="Normal" FontStyle="Normal" Bold="false" UnderLine="false" Strike="false" Italic="false" TextAlignment="Center" LabelHAlign="Center" LabelVAlign="Center" LabelMargin="5,5,5,5" LabelBackground="#00FFFFFF" LabelForeground="#FF000000" />
       </shape>
-    </node>
-    <node ScreenId="DataScreen2" NodeId="CustomDiagramNode9" OffsetX="30" OffsetY="455" AllowMove="true" AllowResize="true" AllowRotate="true" AllowSelect="true" IsInRuntimeMode="false" Width="150" Height="50" ZIndex="2" IsLocked="false" RotateAngle="0" Pivot="0.5,0.5" IsWritableControl="false" WritableValue="0" IsDrawingShape="true" ShapeTypeStr="Rectangle" RibbonTool="None">
-      <shape>
-        <properties Fill="#00FFFFFF" Thickness="2" Stroke="#00FFFFFF" DashDot="1, 0" Opacity="1" Label="三次连续错误" Font="Microsoft YaHei UI" FontSize="12" FontWeight="Normal" FontStyle="Normal" Bold="false" UnderLine="false" Strike="false" Italic="false" TextAlignment="Center" LabelHAlign="Center" LabelVAlign="Center" LabelMargin="5,5,5,5" LabelBackground="#00FFFFFF" LabelForeground="#FF000000" />
-      </shape>
-    </node>
-    <node ScreenId="DataScreen2" NodeId="CustomDiagramNode10" OffsetX="260" OffsetY="450" AllowMove="true" AllowResize="true" AllowRotate="true" AllowSelect="true" IsInRuntimeMode="false" Width="300" Height="60" ZIndex="3" IsLocked="false" RotateAngle="0" Pivot="0.5,0.5" UpdateWhenVisible="true" IsWritableControl="false" WritableValue="0" IsDrawingShape="false" ShapeTypeStr="" RibbonTool="None">
-      <innercontent>
-        <content ControlType="TextboxControl" Type="TextboxControl">
-          <definitions ColorBackground="#FFF5F5F5" Font="Arial Black" FontSizeValue="50" FontStyleValue="Normal" FontWeightValue="Normal" ColorFont="#FF000000" TextAlignmentValue="Right" SeparateThousandsWithComma="false" ScalingFactor="1" ScalingOffset="0" ScalingFormat="" LeadingZeroes="0" NumberOfDecimalPlaces="0" ColorBorder="#FFA9A9A9" BorderThickness="1" CornerRadius="1" Width="300" Height="60" IsVerticalText="false" ContainsAssignedSymbols="true" Text="" />
-        </content>
-      </innercontent>
-      <symbols>
-        <symbol path="bissc_test" IsAnArrayElement="false" ElementIndex="0" IsCustomSymbol="false" Mask_Enabled="false" Mask_Start_Bit="0" Mask_End_Bit="0">
-          <symbol path="bissc_test.err_3_count" IsAnArrayElement="false" ElementIndex="0" IsCustomSymbol="false" Mask_Enabled="false" Mask_Start_Bit="0" Mask_End_Bit="0" />
-        </symbol>
-      </symbols>
-    </node>
-    <node ScreenId="DataScreen2" NodeId="CustomDiagramNode11" OffsetX="800" OffsetY="450" AllowMove="true" AllowResize="true" AllowRotate="true" AllowSelect="true" IsInRuntimeMode="false" Width="300" Height="60" ZIndex="4" IsLocked="false" RotateAngle="0" Pivot="0.5,0.5" UpdateWhenVisible="true" IsWritableControl="false" WritableValue="0" IsDrawingShape="false" ShapeTypeStr="" RibbonTool="None">
-      <innercontent>
-        <content ControlType="TextboxControl" Type="TextboxControl">
-          <definitions ColorBackground="#FFF5F5F5" Font="Arial Black" FontSizeValue="50" FontStyleValue="Normal" FontWeightValue="Normal" ColorFont="#FF000000" TextAlignmentValue="Right" SeparateThousandsWithComma="false" ScalingFactor="1" ScalingOffset="0" ScalingFormat="" LeadingZeroes="0" NumberOfDecimalPlaces="0" ColorBorder="#FFA9A9A9" BorderThickness="1" CornerRadius="1" Width="300" Height="60" IsVerticalText="false" ContainsAssignedSymbols="true" Text="" />
-        </content>
-      </innercontent>
-      <symbols>
-        <symbol path="bissc_test" IsAnArrayElement="false" ElementIndex="0" IsCustomSymbol="false" Mask_Enabled="false" Mask_Start_Bit="0" Mask_End_Bit="0">
-          <symbol path="bissc_test.err_4_count" IsAnArrayElement="false" ElementIndex="0" IsCustomSymbol="false" Mask_Enabled="false" Mask_Start_Bit="0" Mask_End_Bit="0" />
-        </symbol>
-      </symbols>
-    </node>
-    <node ScreenId="DataScreen2" NodeId="CustomDiagramNode12" OffsetX="610" OffsetY="455" AllowMove="true" AllowResize="true" AllowRotate="true" AllowSelect="true" IsInRuntimeMode="false" Width="150" Height="50" ZIndex="6" IsLocked="false" RotateAngle="0" Pivot="0.5,0.5" IsWritableControl="false" WritableValue="0" IsDrawingShape="true" ShapeTypeStr="Rectangle" RibbonTool="None">
-      <shape>
-        <properties Fill="#00FFFFFF" Thickness="2" Stroke="#00FFFFFF" DashDot="1, 0" Opacity="1" Label="四次连续错误" Font="Microsoft YaHei UI" FontSize="12" FontWeight="Normal" FontStyle="Normal" Bold="false" UnderLine="false" Strike="false" Italic="false" TextAlignment="Center" LabelHAlign="Center" LabelVAlign="Center" LabelMargin="5,5,5,5" LabelBackground="#00FFFFFF" LabelForeground="#FF000000" />
-      </shape>
-    </node>
-    <node ScreenId="DataScreen2" NodeId="CustomDiagramNode13" OffsetX="30" OffsetY="560" AllowMove="true" AllowResize="true" AllowRotate="true" AllowSelect="true" IsInRuntimeMode="false" Width="150" Height="50" ZIndex="2" IsLocked="false" RotateAngle="0" Pivot="0.5,0.5" IsWritableControl="false" WritableValue="0" IsDrawingShape="true" ShapeTypeStr="Rectangle" RibbonTool="None">
-      <shape>
-        <properties Fill="#00FFFFFF" Thickness="2" Stroke="#00FFFFFF" DashDot="1, 0" Opacity="1" Label="五次连续错误" Font="Microsoft YaHei UI" FontSize="12" FontWeight="Normal" FontStyle="Normal" Bold="false" UnderLine="false" Strike="false" Italic="false" TextAlignment="Center" LabelHAlign="Center" LabelVAlign="Center" LabelMargin="5,5,5,5" LabelBackground="#00FFFFFF" LabelForeground="#FF000000" />
-      </shape>
-    </node>
-    <node ScreenId="DataScreen2" NodeId="CustomDiagramNode14" OffsetX="260" OffsetY="555" AllowMove="true" AllowResize="true" AllowRotate="true" AllowSelect="true" IsInRuntimeMode="false" Width="300" Height="60" ZIndex="3" IsLocked="false" RotateAngle="0" Pivot="0.5,0.5" UpdateWhenVisible="true" IsWritableControl="false" WritableValue="0" IsDrawingShape="false" ShapeTypeStr="" RibbonTool="None">
-      <innercontent>
-        <content ControlType="TextboxControl" Type="TextboxControl">
-          <definitions ColorBackground="#FFF5F5F5" Font="Arial Black" FontSizeValue="50" FontStyleValue="Normal" FontWeightValue="Normal" ColorFont="#FF000000" TextAlignmentValue="Right" SeparateThousandsWithComma="false" ScalingFactor="1" ScalingOffset="0" ScalingFormat="" LeadingZeroes="0" NumberOfDecimalPlaces="0" ColorBorder="#FFA9A9A9" BorderThickness="1" CornerRadius="1" Width="300" Height="60" IsVerticalText="false" ContainsAssignedSymbols="true" Text="" />
-        </content>
-      </innercontent>
-      <symbols>
-        <symbol path="bissc_test" IsAnArrayElement="false" ElementIndex="0" IsCustomSymbol="false" Mask_Enabled="false" Mask_Start_Bit="0" Mask_End_Bit="0">
-          <symbol path="bissc_test.err_5_count" IsAnArrayElement="false" ElementIndex="0" IsCustomSymbol="false" Mask_Enabled="false" Mask_Start_Bit="0" Mask_End_Bit="0" />
-        </symbol>
-      </symbols>
-    </node>
-    <node ScreenId="DataScreen2" NodeId="CustomDiagramNode15" OffsetX="610" OffsetY="560" AllowMove="true" AllowResize="true" AllowRotate="true" AllowSelect="true" IsInRuntimeMode="false" Width="150" Height="50" ZIndex="6" IsLocked="false" RotateAngle="0" Pivot="0.5,0.5" IsWritableControl="false" WritableValue="0" IsDrawingShape="true" ShapeTypeStr="Rectangle" RibbonTool="None">
-      <shape>
-        <properties Fill="#00FFFFFF" Thickness="2" Stroke="#00FFFFFF" DashDot="1, 0" Opacity="1" Label="超时次数" Font="Microsoft YaHei UI" FontSize="12" FontWeight="Normal" FontStyle="Normal" Bold="false" UnderLine="false" Strike="false" Italic="false" TextAlignment="Center" LabelHAlign="Center" LabelVAlign="Center" LabelMargin="5,5,5,5" LabelBackground="#00FFFFFF" LabelForeground="#FF000000" />
-      </shape>
-    </node>
-    <node ScreenId="DataScreen2" NodeId="CustomDiagramNode16" OffsetX="800" OffsetY="560" AllowMove="true" AllowResize="true" AllowRotate="true" AllowSelect="true" IsInRuntimeMode="false" Width="300" Height="60" ZIndex="2" IsLocked="false" RotateAngle="0" Pivot="0.5,0.5" UpdateWhenVisible="true" IsWritableControl="false" WritableValue="0" IsDrawingShape="false" ShapeTypeStr="" RibbonTool="None">
-      <innercontent>
-        <content ControlType="TextboxControl" Type="TextboxControl">
-          <definitions ColorBackground="#FFF5F5F5" Font="Arial Black" FontSizeValue="50" FontStyleValue="Normal" FontWeightValue="Normal" ColorFont="#FF000000" TextAlignmentValue="Right" SeparateThousandsWithComma="false" ScalingFactor="1" ScalingOffset="0" ScalingFormat="" LeadingZeroes="0" NumberOfDecimalPlaces="0" ColorBorder="#FFA9A9A9" BorderThickness="1" CornerRadius="1" Width="300" Height="60" IsVerticalText="false" ContainsAssignedSymbols="true" Text="" />
-        </content>
-      </innercontent>
-      <symbols>
-        <symbol path="bissc_test" IsAnArrayElement="false" ElementIndex="0" IsCustomSymbol="false" Mask_Enabled="false" Mask_Start_Bit="0" Mask_End_Bit="0">
-          <symbol path="bissc_test.read_timeout_count" IsAnArrayElement="false" ElementIndex="0" IsCustomSymbol="false" Mask_Enabled="false" Mask_Start_Bit="0" Mask_End_Bit="0" />
-        </symbol>
-      </symbols>
     </node>
   </nodes>
   <screens_objects />
@@ -166,11 +81,11 @@
           <ZorderInFloatMode>0</ZorderInFloatMode>
           <TabOrderIndex>-1</TabOrderIndex>
           <PreviousContainerDesiredSize>
-            <Width>730</Width>
+            <Width>1396</Width>
             <Height>0</Height>
           </PreviousContainerDesiredSize>
-          <PreviousDesiredWidthInDockedMode>730</PreviousDesiredWidthInDockedMode>
-          <PreviousDesiredHeightInDockedMode>263</PreviousDesiredHeightInDockedMode>
+          <PreviousDesiredWidthInDockedMode>1396</PreviousDesiredWidthInDockedMode>
+          <PreviousDesiredHeightInDockedMode>359</PreviousDesiredHeightInDockedMode>
           <Name>usrSymbolBrowser</Name>
           <State>Dock</State>
           <NoHeader>false</NoHeader>
@@ -179,16 +94,16 @@
           <TargetDocked />
           <TargetFloating />
           <DesiredWidthInDockedMode>1396</DesiredWidthInDockedMode>
-          <DesiredHeightInDockedMode>263</DesiredHeightInDockedMode>
+          <DesiredHeightInDockedMode>359</DesiredHeightInDockedMode>
           <DesiredWidthInFloatingMode>90</DesiredWidthInFloatingMode>
           <DesiredHeightInFloatingMode>360</DesiredHeightInFloatingMode>
           <NoDock>false</NoDock>
           <CanDock>true</CanDock>
           <CanClose>false</CanClose>
           <IsSelectedTab>false</IsSelectedTab>
-          <IsActiveWindow>false</IsActiveWindow>
+          <IsActiveWindow>true</IsActiveWindow>
           <WindowRect />
-          <TabGroupName>8907040</TabGroupName>
+          <TabGroupName>41088586</TabGroupName>
           <IsTabGroupOwner>false</IsTabGroupOwner>
           <SideTabOrder>0</SideTabOrder>
           <IndexInDockMode>4</IndexInDockMode>
@@ -242,11 +157,11 @@
           <ZorderInFloatMode>0</ZorderInFloatMode>
           <TabOrderIndex>-1</TabOrderIndex>
           <PreviousContainerDesiredSize>
-            <Width>270</Width>
-            <Height>855</Height>
+            <Width>516</Width>
+            <Height>869</Height>
           </PreviousContainerDesiredSize>
-          <PreviousDesiredWidthInDockedMode>270</PreviousDesiredWidthInDockedMode>
-          <PreviousDesiredHeightInDockedMode>141</PreviousDesiredHeightInDockedMode>
+          <PreviousDesiredWidthInDockedMode>516</PreviousDesiredWidthInDockedMode>
+          <PreviousDesiredHeightInDockedMode>143</PreviousDesiredHeightInDockedMode>
           <Name>workspaceExplorerMainView</Name>
           <State>Dock</State>
           <NoHeader>false</NoHeader>
@@ -264,7 +179,7 @@
           <IsSelectedTab>false</IsSelectedTab>
           <IsActiveWindow>false</IsActiveWindow>
           <WindowRect />
-          <TabGroupName>50781912</TabGroupName>
+          <TabGroupName>6308678</TabGroupName>
           <IsTabGroupOwner>false</IsTabGroupOwner>
           <SideTabOrder>0</SideTabOrder>
           <IndexInDockMode>2</IndexInDockMode>
@@ -318,11 +233,11 @@
           <ZorderInFloatMode>0</ZorderInFloatMode>
           <TabOrderIndex>-1</TabOrderIndex>
           <PreviousContainerDesiredSize>
-            <Width>270</Width>
-            <Height>855</Height>
+            <Width>516</Width>
+            <Height>869</Height>
           </PreviousContainerDesiredSize>
-          <PreviousDesiredWidthInDockedMode>270</PreviousDesiredWidthInDockedMode>
-          <PreviousDesiredHeightInDockedMode>424</PreviousDesiredHeightInDockedMode>
+          <PreviousDesiredWidthInDockedMode>516</PreviousDesiredWidthInDockedMode>
+          <PreviousDesiredHeightInDockedMode>431</PreviousDesiredHeightInDockedMode>
           <Name>toolboxMainView</Name>
           <State>Dock</State>
           <NoHeader>false</NoHeader>
@@ -340,7 +255,7 @@
           <IsSelectedTab>false</IsSelectedTab>
           <IsActiveWindow>false</IsActiveWindow>
           <WindowRect />
-          <TabGroupName>19694188</TabGroupName>
+          <TabGroupName>66477866</TabGroupName>
           <IsTabGroupOwner>false</IsTabGroupOwner>
           <SideTabOrder>0</SideTabOrder>
           <IndexInDockMode>1</IndexInDockMode>
@@ -394,11 +309,11 @@
           <ZorderInFloatMode>0</ZorderInFloatMode>
           <TabOrderIndex>-1</TabOrderIndex>
           <PreviousContainerDesiredSize>
-            <Width>270</Width>
-            <Height>855</Height>
+            <Width>516</Width>
+            <Height>869</Height>
           </PreviousContainerDesiredSize>
-          <PreviousDesiredWidthInDockedMode>270</PreviousDesiredWidthInDockedMode>
-          <PreviousDesiredHeightInDockedMode>282</PreviousDesiredHeightInDockedMode>
+          <PreviousDesiredWidthInDockedMode>516</PreviousDesiredWidthInDockedMode>
+          <PreviousDesiredHeightInDockedMode>287</PreviousDesiredHeightInDockedMode>
           <Name>infineonSelectorView</Name>
           <State>Dock</State>
           <NoHeader>false</NoHeader>
@@ -414,9 +329,9 @@
           <CanDock>true</CanDock>
           <CanClose>false</CanClose>
           <IsSelectedTab>true</IsSelectedTab>
-          <IsActiveWindow>true</IsActiveWindow>
+          <IsActiveWindow>false</IsActiveWindow>
           <WindowRect />
-          <TabGroupName>51725389</TabGroupName>
+          <TabGroupName>56530120</TabGroupName>
           <IsTabGroupOwner>false</IsTabGroupOwner>
           <SideTabOrder>0</SideTabOrder>
           <IndexInDockMode>3</IndexInDockMode>

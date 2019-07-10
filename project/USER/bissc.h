@@ -22,8 +22,8 @@ struct bissc{
 	uint8_t CRC_result;			//当前帧传输正确=1，传输错误=0
 	
 	/*仅给出接口部分，没有赋值处理*/
-	uint32_t cor_1_count;		//单次正确统计，仅给出接口，根据CRC_result，自行实现
-	uint32_t err_1_count;		//单次错误统计，仅给出接口，根据CRC_result，自行实现
+	uint32_t cor_1_count;		//连续1正确统计，仅给出接口，根据CRC_result，自行实现
+	uint32_t err_1_count;		//连续1错误统计，仅给出接口，根据CRC_result，自行实现
 	uint32_t err_2_count;		//连续2错误统计，仅给出接口，根据CRC_result，自行实现
 	uint32_t err_3_count;		//连续3错误统计，仅给出接口，根据CRC_result，自行实现
 	uint32_t err_4_count;		//连续4错误统计，仅给出接口，根据CRC_result，自行实现
@@ -32,7 +32,7 @@ struct bissc{
 	uint8_t init_state;		//0正常，1等待接收超时，2读取超时
 	uint8_t read_state;		//0正常，1等待接收超时，2读取超时
 	
-	uint32_t read_timeout_count;	//读取超时计数
+	uint32_t read_timeout_count;	//读取超时计数，仅给出接口，根据CRC_result，自行实现
   };
 
 

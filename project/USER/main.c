@@ -25,6 +25,9 @@ uint8_t last_frame[5]={1,1,1,1,1};	//init all is correct
 /*end of test code A*/
 
 int main(){
+	/*test code C*/
+	uint16_t st=0;
+	/*end of test code C*/
 	
 	bissc_test.init_state = bissc_init(&bissc_test);		//step 2
 	if(bissc_test.init_state){
@@ -63,6 +66,15 @@ int main(){
 			}else{
 				bissc_test.cor_1_count++;
 			}
+			
+			while(1)	//等待接收缓存有数据
+			{
+						st++;
+						if(st>0x2ff){
+							st=0;
+							break;
+						}
+			}	
 /*end of test code B*/
 			
 		}
